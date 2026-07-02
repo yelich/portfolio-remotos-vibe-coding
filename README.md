@@ -37,3 +37,23 @@ Updating the clinic's landing page is **100% automated** and requires zero manua
 ---
 *Note: This project serves as a practical demonstration of how agentic AI-powered tools optimize software delivery times, enabling healthcare clinics to digitize their workflow pipelines quickly, securely, and professionally.*
 
+## Testing & Webhook Verification
+
+To ensure that the integration between the frontend form and **GoHighLevel** works seamlessly, follow these verification steps:
+
+### 1. Local Form Submission Test
+1. Open the project locally or via a live preview server.
+2. Fill out the intake form using test data (e.g., `testpatient@example.com`).
+3. Open your browser's **Developer Tools (F12)** and navigate to the **Network** tab.
+4. Click **Submit** and verify that an HTTP request to the GoHighLevel webhook endpoint returns a `200 OK` or `201 Created` status code.
+
+### 2. Payload Inspection via GoHighLevel
+1. Log into your **GoHighLevel Sub-Account**.
+2. Navigate to **Automation > Workflows** and select the workflow triggered by the *Inbound Webhook*.
+3. Click on **Execution Logs** or **History** to view the incoming data payload.
+4. Verify that the JSON keys matches exactly with the variables mapped in your form fields (e.g., `first_name`, `email`, `therapy_type`).
+
+### 3. Workflow Trigger Validation
+* Confirm that after receiving the test webhook, the automation path executes the first action (such as adding a tag like `[Lead: Speech Therapy]` or creating an Opportunity card in the CRM pipeline).
+
+
