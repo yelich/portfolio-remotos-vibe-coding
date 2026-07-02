@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MG Therapy Inc. | Terapia Ocupacional y del Habla en Weston, FL</title>
+    <!-- Meta Descriptions for SEO -->
+    <meta name="description" content="Especialistas bilingües en Terapia del Habla y Ocupacional en Weston, FL. Ayudamos a tu hijo a superar barreras de comunicación, enfoque y desarrollo sensorial.">
+    <meta name="keywords" content="speech therapy, occupational therapy, weston fl, pediatria, autismo, tdah, terapia del habla, terapia ocupacional, bilingue">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome for Premium Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Main Style Sheet -->
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+
+    <!-- STICKY HEADER -->
+    <header class="main-header">
+        <div class="header-container">
+            <a href="#" class="logo-area">
+                <img src="assets/logo.png" alt="MG Therapy Inc. Logo" class="clinic-logo">
+            </a>
+            
+            <nav class="nav-menu">
+                <ul>
+                    <li><a href="#about" data-i18n="nav_about">Nosotros</a></li>
+                    <li><a href="#challenges" data-i18n="nav_challenges">Retos</a></li>
+                    <li><a href="#value" data-i18n="nav_value">Ventajas</a></li>
+                    <li><a href="#contact-section" class="nav-cta" data-i18n="nav_cta">Pre-Calificar Seguro</a></li>
+                </ul>
+            </nav>
+
+            <!-- Language Switcher Toggle -->
+            <div class="language-toggle">
+                <button id="lang-es" class="lang-btn active">ES</button>
+                <span class="divider">/</span>
+                <button id="lang-en" class="lang-btn">EN</button>
+            </div>
+            
+            <!-- Mobile Toggle Menu Button -->
+            <button class="mobile-nav-toggle" aria-label="Abrir menú">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- MOBILE MENU OVERLAY -->
+    <div class="mobile-menu-overlay">
+        <div class="mobile-menu-container">
+            <button class="close-mobile-menu"><i class="fa-solid fa-xmark"></i></button>
+            <ul class="mobile-nav-links">
+                <li><a href="#about" data-i18n="nav_about">Nosotros</a></li>
+                <li><a href="#challenges" data-i18n="nav_challenges">Retos</a></li>
+                <li><a href="#value" data-i18n="nav_value">Ventajas</a></li>
+                <li><a href="#contact-section" class="nav-cta-mobile" data-i18n="nav_cta">Pre-Calificar Seguro</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <main>
+
+        <!-- SECTION 1: HERO SECTION -->
+        <section class="hero-section" id="about">
+            <div class="hero-container">
+                <div class="hero-text-content">
+                    <div class="badge-micro" data-i18n="hero_micro_badge">
+                        <i class="fa-solid fa-star"></i> Clínica de Terapia Pediátrica en Weston, FL
+                    </div>
+                    <h1 class="hero-title" data-i18n="hero_title">
+                        El futuro de tu hijo empieza con un diagnóstico claro y una terapia personalizada.
+                    </h1>
+                    <h2 class="hero-subtitle" data-i18n="hero_subtitle">
+                        Especialistas bilingües en Terapia del Habla y Ocupacional en Weston, FL. Ayudamos a tu hijo a superar barreras de comunicación, enfoque y desarrollo sensorial con atención clínica individualizada.
+                    </h2>
+                    <div class="hero-actions">
+                        <a href="#contact-section" class="btn-cta btn-magenta" data-i18n="hero_primary_cta">
+                            Reservar Evaluación Presencial
+                        </a>
+                    </div>
+                    <p class="hero-trust-text">
+                        <i class="fa-solid fa-shield-halved"></i> <span data-i18n="hero_trust_text">Aceptamos Medicaid y planes privados.</span>
+                    </p>
+                </div>
+                
+                <div class="hero-visual">
+                    <div class="premium-image-frame">
+                        <img src="assets/therapy_room.png" alt="Espacio de terapia cálido y personalizado en MG Therapy Inc." class="hero-img">
+                        <div class="floating-badge badge-top">
+                            <i class="fa-solid fa-heart"></i>
+                            <div>
+                                <h4 data-i18n="badge_atencion_title">Atención Familiar</h4>
+                                <p data-i18n="badge_atencion_desc">Espacios seguros y divertidos</p>
+                            </div>
+                        </div>
+                        <div class="floating-badge badge-bottom">
+                            <i class="fa-solid fa-certificate"></i>
+                            <div>
+                                <h4 data-i18n="badge_cert_title">Certificados</h4>
+                                <p data-i18n="badge_cert_desc">Terapeutas bilingües avalados</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- WAVE DECORATIVE SEPARATOR -->
+            <div class="wave-separator">
+                <svg viewBox="0 0 1440 120" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M0,32L80,42.7C160,53,320,75,480,80C640,85,800,75,960,64C1120,53,1280,43,1360,37.3L1440,32L1440,120L1360,120C1280,120,1120,120,960,120C800,120,640,120,480,120C320,120,160,120,80,120L0,120Z" fill="#ffffff"></path>
+                </svg>
+            </div>
+        </section>
+
+
+        <!-- SECTION 2: TRUST BAR -->
+        <section class="trust-bar">
+            <div class="container">
+                <p class="trust-bar-title" data-i18n="trust_title">Respaldados por las principales coberturas:</p>
+                <div class="trust-badges-grid">
+                    <div class="trust-badge">
+                        <div class="badge-icon-medicaid"></div>
+                        <span>Medicaid Florida</span>
+                    </div>
+                    <div class="trust-badge">
+                        <i class="fa-solid fa-credit-card"></i>
+                        <span>MG Therapy Private Pay</span>
+                    </div>
+                    <div class="trust-badge-alert">
+                        <i class="fa-solid fa-graduation-cap"></i>
+                        <span data-i18n="trust_upcoming">Próximamente procesando Becas FES-UA / Step Up for Students</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- SECTION 3: EMOTIONAL CONNECTION SECTION -->
+        <section class="challenges-section" id="challenges">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-tag" data-i18n="challenges_tag">Sabemos lo que estás pasando</span>
+                    <h2 class="section-title" data-i18n="challenges_title">¿Has notado que tu hijo enfrenta alguno de estos retos?</h2>
+                    <p class="section-subtitle" data-i18n="challenges_subtitle">Identificar las señales a tiempo marca una gran diferencia en su desarrollo emocional y cognitivo.</p>
+                </div>
+                
+                <div class="challenges-grid">
+                    <!-- CARD 1 -->
+                    <div class="challenge-card">
+                        <div class="card-icon lime-bg">
+                            <i class="fa-solid fa-comments"></i>
+                        </div>
+                        <h3 class="card-title" data-i18n="card1_title">Retraso del habla</h3>
+                        <p class="card-text" data-i18n="card1_desc">Tiene la edad para hablar, pero aún no dice palabras o le cuesta articularlas correctamente.</p>
+                    </div>
+
+                    <!-- CARD 2 -->
+                    <div class="challenge-card">
+                        <div class="card-icon pink-bg">
+                            <i class="fa-solid fa-bell"></i>
+                        </div>
+                        <h3 class="card-title" data-i18n="card2_title">Alertas Escolares</h3>
+                        <p class="card-text" data-i18n="card2_desc">La escuela te ha sugerido una evaluación por posibles señales de TEA (Autismo) o TDAH.</p>
+                    </div>
+
+                    <!-- CARD 3 -->
+                    <div class="challenge-card">
+                        <div class="card-icon blue-bg">
+                            <i class="fa-solid fa-brain"></i>
+                        </div>
+                        <h3 class="card-title" data-i18n="card3_title">Problemas de Enfoque</h3>
+                        <p class="card-text" data-i18n="card3_desc">Le cuesta concentrarse en tareas sencillas, seguir instrucciones o mantener la atención.</p>
+                    </div>
+
+                    <!-- CARD 4 -->
+                    <div class="challenge-card">
+                        <div class="card-icon green-bg">
+                            <i class="fa-solid fa-hands-holding-child"></i>
+                        </div>
+                        <h3 class="card-title" data-i18n="card4_title">Desafíos Motores y Sensoriales</h3>
+                        <p class="card-text" data-i18n="card4_desc">Muestra rigidez, falta de coordinación o dificultades con la escritura y texturas alimentarias.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- SECTION 4: UNIQUE VALUE PROPOSITION -->
+        <section class="value-section" id="value">
+            <div class="container">
+                <div class="section-header white-text">
+                    <span class="section-tag green-tag" data-i18n="value_tag">Nuestros Superpoderes</span>
+                    <h2 class="section-title" data-i18n="value_title">Por qué las familias de Weston eligen MG Therapy Inc.</h2>
+                </div>
+                
+                <div class="value-grid">
+                    <!-- COLUMN 1 -->
+                    <div class="value-column">
+                        <div class="value-badge">01</div>
+                        <h3 data-i18n="val1_title">Atención 100% Personalizada</h3>
+                        <p data-i18n="val1_desc">Not a corporate/mass clinic. Direct, exclusive focus from therapists who know the child’s name and pace.</p>
+                    </div>
+                    
+                    <!-- COLUMN 2 -->
+                    <div class="value-column">
+                        <div class="value-badge">02</div>
+                        <h3 data-i18n="val2_title">Especialistas con Certificación Internacional</h3>
+                        <p data-i18n="val2_desc">Advanced global credentials for complex diagnoses (Autism, Cerebral Palsy, Dyspraxia, Hypotonia).</p>
+                    </div>
+                    
+                    <!-- COLUMN 3 -->
+                    <div class="value-column">
+                        <div class="value-badge">03</div>
+                        <h3 data-i18n="val3_title">Enfoque Clínico 100% Bilingüe</h3>
+                        <p data-i18n="val3_desc">Evaluation and treatment in English and Spanish to fit Miami's multicultural environment.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- SECTION 5: INTELLIGENT LEAD GENERATION FORM -->
+        <section class="form-section" id="contact-section">
+            <div class="container">
+                <div class="form-wrapper">
+                    <div class="form-header">
+                        <i class="fa-solid fa-clipboard-question form-top-icon"></i>
+                        <h2 data-i18n="form_title">Solicita tu Evaluación Presencial Hoy Mismo</h2>
+                        <p data-i18n="form_subtitle">Completa los datos a continuación para pre-calificar tu seguro y preparar la primera cita de tu hijo.</p>
+                    </div>
+                    
+                    <form id="lead-generation-form" novalidate>
+                        <!-- Parent Name & Phone -->
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="parent-name"><span data-i18n="label_parent_name">Nombre del Representante</span> <span class="required">*</span></label>
+                                <div class="input-with-icon">
+                                    <i class="fa-solid fa-user"></i>
+                                    <input type="text" id="parent-name" name="parentName" placeholder="Ej. María González" required>
+                                </div>
+                                <span class="error-message" id="error-parent-name"></span>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="parent-phone"><span data-i18n="label_parent_phone">Número de Teléfono</span> <span class="required">*</span></label>
+                                <div class="input-with-icon">
+                                    <i class="fa-solid fa-phone"></i>
+                                    <input type="tel" id="parent-phone" name="parentPhone" placeholder="Ej. (954) 555-0199" required>
+                                </div>
+                                <span class="error-message" id="error-parent-phone"></span>
+                            </div>
+                        </div>
+
+                        <!-- Child Name & Age -->
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="child-name"><span data-i18n="label_child_name">Nombre del Niño</span> <span class="required">*</span></label>
+                                <div class="input-with-icon">
+                                    <i class="fa-solid fa-child"></i>
+                                    <input type="text" id="child-name" name="childName" placeholder="Ej. Sebastián" required>
+                                </div>
+                                <span class="error-message" id="error-child-name"></span>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="child-age"><span data-i18n="label_child_age">Edad del Niño</span> <span class="required">*</span></label>
+                                <div class="input-with-icon">
+                                    <i class="fa-solid fa-calendar-day"></i>
+                                    <input type="number" id="child-age" name="childAge" min="1" max="18" placeholder="Ej. 5" required>
+                                </div>
+                                <span class="error-message" id="error-child-age"></span>
+                            </div>
+                        </div>
+
+                        <!-- Therapy Checkboxes -->
+                        <div class="form-group">
+                            <label><span data-i18n="label_therapy_type">Tipo de Terapia Requerida</span> <span class="required">*</span></label>
+                            <div class="checkbox-group">
+                                <label class="checkbox-container">
+                                    <input type="checkbox" name="therapyType" value="speech" class="therapy-check">
+                                    <span class="checkmark"></span>
+                                    <span data-i18n="check_speech">Terapia del Habla</span>
+                                </label>
+                                <label class="checkbox-container">
+                                    <input type="checkbox" name="therapyType" value="occupational" class="therapy-check">
+                                    <span class="checkmark"></span>
+                                    <span data-i18n="check_occupational">Terapia Ocupacional</span>
+                                </label>
+                                <label class="checkbox-container">
+                                    <input type="checkbox" name="therapyType" value="both" class="therapy-check" id="therapy-both">
+                                    <span class="checkmark"></span>
+                                    <span data-i18n="check_both">Ambas Disciplinas</span>
+                                </label>
+                            </div>
+                            <span class="error-message" id="error-therapy-type"></span>
+                        </div>
+
+                        <!-- Text Area Current Diagnosis -->
+                        <div class="form-group">
+                            <label for="diagnosis-desc" data-i18n="label_diagnosis">Diagnóstico actual o principales dificultades que observa</label>
+                            <textarea id="diagnosis-desc" name="diagnosisDesc" rows="3" placeholder="Ej. Le cuesta pronunciar la letra R o se distrae con facilidad..."></textarea>
+                        </div>
+
+                        <!-- Coverage Selection -->
+                        <div class="form-group">
+                            <label><span data-i18n="label_coverage">Tipo de Cobertura / Seguro</span> <span class="required">*</span></label>
+                            <div class="radio-group">
+                                <label class="radio-container">
+                                    <input type="radio" name="coverage" value="medicaid" checked>
+                                    <span class="radiomark"></span>
+                                    <span>Medicaid</span>
+                                </label>
+                                <label class="radio-container">
+                                    <input type="radio" name="coverage" value="private">
+                                    <span class="radiomark"></span>
+                                    <span data-i18n="radio_private">Pago Privado / Private Pay</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Submit Button -->
+                        <button type="submit" class="btn-cta btn-submit" id="btn-submit-form">
+                            <span data-i18n="btn_submit_text">Enviar Información y Agendar Cita</span> <i class="fa-solid fa-arrow-right"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- SUCCESS MODAL/POPUP -->
+    <div class="modal-overlay" id="success-modal">
+        <div class="modal-content">
+            <i class="fa-solid fa-circle-check success-icon"></i>
+            <h3 data-i18n="modal_success_title">¡Información Recibida con Éxito!</h3>
+            <p id="modal-message" data-i18n="modal_success_desc">Hemos registrado los datos de tu hijo. Un especialista de MG Therapy Inc. se comunicará contigo en las próximas 24 horas hábiles para coordinar la evaluación presencial.</p>
+            <button class="btn-cta btn-blue" id="close-modal-btn" data-i18n="modal_close">Entendido</button>
+        </div>
+    </div>
+
+    <!-- FOOTER & LOCAL AUTHORITY -->
+    <footer class="site-footer">
+        <div class="container footer-grid">
+            <!-- Col 1: Clinic Info -->
+            <div class="footer-info">
+                <img src="assets/logo.png" alt="MG Therapy Inc. Logo" class="footer-logo">
+                <p class="footer-tagline" data-i18n="footer_tagline">Confianza profesional y acompañamiento familiar en cada etapa del camino.</p>
+                <div class="contact-details">
+                    <p class="contact-item">
+                        <i class="fa-solid fa-location-dot"></i>
+                        <span>Weston Business Center, 1500 Weston Rd # 215, Weston, FL 33326.</span>
+                    </p>
+                    <p class="contact-item">
+                        <i class="fa-solid fa-phone"></i>
+                        <a href="tel:9545601665">(954) 560-1665</a>
+                    </p>
+                </div>
+            </div>
+            
+            <!-- Col 2: Navigation Links -->
+            <div class="footer-links">
+                <h4 data-i18n="footer_links_title">Enlaces Rápidos</h4>
+                <ul>
+                    <li><a href="#about" data-i18n="nav_about">Nosotros</a></li>
+                    <li><a href="#challenges" data-i18n="nav_challenges">Retos</a></li>
+                    <li><a href="#value" data-i18n="nav_value">Ventajas</a></li>
+                    <li><a href="#contact-section" data-i18n="nav_cta">Pre-Calificar Seguro</a></li>
+                </ul>
+            </div>
+
+            <!-- Col 3: Interactive Maps Container -->
+            <div class="footer-map-container">
+                <h4 data-i18n="footer_map_title">Nuestra Ubicación en Weston</h4>
+                <div class="map-wrapper">
+                    <!-- Standard Google Maps Iframe pointing to Weston Business Center, 1500 Weston Rd -->
+                    <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3583.585573428172!2d-80.36437648497255!3d26.079979783492415!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88d9a4897f26e6d1%3A0xe4eb23517454d4ff!2s1500%20Weston%20Rd%20%23215%2C%20Weston%2C%20FL%2033326!5e0!3m2!1sen!2sus!4v1688145000000!5m2!1sen!2sus" 
+                        width="100%" 
+                        height="200" 
+                        style="border:0;" 
+                        allowfullscreen="" 
+                        loading="lazy" 
+                        referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <div class="container">
+                <p>&copy; 2026 MG Therapy Inc. All rights reserved. | <span data-i18n="footer_rights">Diseñado profesionalmente para el bienestar infantil.</span></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Main JS logic -->
+    <script src="index.js"></script>
+</body>
+</html>
