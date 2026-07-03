@@ -99,7 +99,7 @@ const translations = {
         // Hero Section
         hero_micro_badge: "<i class='fa-solid fa-star'></i> Pediatric Therapy Clinic in Weston, FL",
         hero_title: "Bilingual Speech and Occupational Therapy Specialists in Weston, FL.",
-        hero_subtitle: "Bilingual Speech and Occupational Therapy Specialists in Weston, FL. We help your child overcome communication, focus, and sensory development barriers with individualized clinical care.",
+        hero_subtitle: "We help your child overcome communication, focus, and sensory development barriers with individualized clinical care.",
         hero_primary_cta: "Book In-Person Evaluation",
         hero_trust_text: "We accept Medicaid and private insurance.",
         badge_atencion_title: "Family-Oriented",
