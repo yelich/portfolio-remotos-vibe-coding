@@ -98,7 +98,7 @@ const translations = {
         
         // Hero Section
         hero_micro_badge: "<i class='fa-solid fa-star'></i> Pediatric Therapy Clinic in Weston, FL",
-        hero_title: "Your child's future starts with a clear diagnosis and personalized therapy.",
+        hero_title: "Bilingual Speech and Occupational Therapy Specialists in Weston, FL.",
         hero_subtitle: "Bilingual Speech and Occupational Therapy Specialists in Weston, FL. We help your child overcome communication, focus, and sensory development barriers with individualized clinical care.",
         hero_primary_cta: "Book In-Person Evaluation",
         hero_trust_text: "We accept Medicaid and private insurance.",
@@ -418,7 +418,7 @@ form.addEventListener("submit", (e) => {
         console.log("Submitting form data:", formData);
         
         // Send to GoHighLevel Webhook
-        fetch("https://services.leadconnectorhq.com/hooks/V3IEiIdO3F9qvsXbpNaP/webhook-trigger/ca28c236-1544-4d04-ab8f-7f8144089ac1", {
+        fetch("https://services.leadconnectorhq.com/hooks/V3IEiIdO3F9qvsXbpNaP/webhook-trigger/dd059645-9834-4e52-baab-d6b0dee8d763", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
