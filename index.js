@@ -11,8 +11,8 @@ const translations = {
         
         // Hero Section
         hero_micro_badge: "<i class='fa-solid fa-star'></i> Clínica de Terapia Pediátrica en Weston, FL",
-        hero_title: "El futuro de tu hijo empieza con un diagnóstico claro y una terapia personalizada.",
-        hero_subtitle: "Especialistas bilingües en Terapia del Habla y Ocupacional en Weston, FL. Ayudamos a tu hijo a superar barreras de comunicación, enfoque y desarrollo sensorial con atención clínica individualizada.",
+        hero_title: "Especialistas bilingües en Terapia del Habla y Ocupacional en Weston, FL.",
+        hero_subtitle: "Ayudamos a tu hijo a superar barreras de comunicación, enfoque y desarrollo sensorial con atención clínica individualizada.",
         hero_primary_cta: "Reservar Evaluación Presencial",
         hero_trust_text: "Aceptamos Medicaid y planes privados.",
         badge_atencion_title: "Atención Familiar",
