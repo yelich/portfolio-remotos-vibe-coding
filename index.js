@@ -77,6 +77,9 @@ const translations = {
         err_child_name: "Por favor, ingresa el nombre del niño.",
         err_child_age: "Ingresa una edad válida (1-18 años).",
         err_therapy: "Selecciona al menos un tipo de terapia.",
+        privacy_consent_text: "Acepto la <button type='button' class='btn-link' id='open-privacy-btn'>Política de Privacidad</button> y doy mi consentimiento para ser contactado en relación con la evaluación de mi hijo(a).",
+        err_privacy_consent: "Debes aceptar la Política de Privacidad para continuar.",
+        err_parent_phone_invalid: "Ingresa un número de teléfono válido para el país seleccionado.",
         
         // Modal Success
         modal_success_title: "¡Información Recibida con Éxito!",
@@ -164,6 +167,9 @@ const translations = {
         err_child_name: "Please enter the child's name.",
         err_child_age: "Please enter a valid age (1-18 years).",
         err_therapy: "Please select at least one therapy type.",
+        privacy_consent_text: "I agree to the <button type='button' class='btn-link' id='open-privacy-btn'>Privacy Policy</button> and consent to being contacted regarding my child's evaluation.",
+        err_privacy_consent: "You must accept the Privacy Policy to continue.",
+        err_parent_phone_invalid: "Please enter a valid phone number for the selected country.",
         
         // Modal Success
         modal_success_title: "Information Received Successfully!",
@@ -216,9 +222,22 @@ function setLanguage(lang) {
     if (diagnosisDescInput) diagnosisDescInput.placeholder = translations[lang].ph_diagnosis;
 }
 
-// Initialize Language on DOM Load
+let iti;
+
+// Initialize on DOM Load
 document.addEventListener("DOMContentLoaded", () => {
     setLanguage(currentLang);
+    
+    // Initialize intl-tel-input
+    const phoneInput = document.getElementById("parent-phone");
+    if (phoneInput) {
+        iti = window.intlTelInput(phoneInput, {
+            initialCountry: "us",
+            preferredCountries: ["us", "co", "ve", "es"],
+            separateDialCode: true,
+            utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.19/js/utils.js"
+        });
+    }
 });
 
 // Event Listeners for language switches
@@ -336,13 +355,77 @@ document.getElementById("parent-name").addEventListener("blur", function() {
     validateInput(this, document.getElementById("error-parent-name"), val => val.trim().length > 0, "err_parent_name");
 });
 
-document.getElementById("parent-phone").addEventListener("blur", function() {
-    // Basic phone pattern check (must resolve to 10 numerical digits)
-    validateInput(this, document.getElementById("error-parent-phone"), val => {
-        const digits = val.replace(/\D/g, "");
-        return digits.length === 10;
-    }, "err_parent_phone");
+function validatePhone() {
+    const parentPhone = document.getElementById("parent-phone");
+    const errorElement = document.getElementById("error-parent-phone");
+    const parentGroup = parentPhone.closest(".form-group");
+    const val = parentPhone.value.trim();
+    
+    if (!val) {
+        parentGroup.classList.add("invalid");
+        errorElement.textContent = currentLang === "es" ? "Por favor, ingresa tu número de teléfono." : "Please enter your phone number.";
+        return false;
+    }
+    
+    if (iti && !iti.isValidNumber()) {
+        parentGroup.classList.add("invalid");
+        errorElement.textContent = translations[currentLang].err_parent_phone_invalid;
+        return false;
+    }
+    
+    parentGroup.classList.remove("invalid");
+    errorElement.textContent = "";
+    return true;
+}
+
+function validatePrivacyConsent() {
+    const consentCheck = document.getElementById("privacy-consent");
+    const errorElement = document.getElementById("error-privacy-consent");
+    const parentGroup = consentCheck.closest(".form-group");
+    
+    if (!consentCheck.checked) {
+        parentGroup.classList.add("invalid");
+        errorElement.textContent = translations[currentLang].err_privacy_consent;
+        return false;
+    } else {
+        parentGroup.classList.remove("invalid");
+        errorElement.textContent = "";
+        return true;
+    }
+}
+
+document.getElementById("parent-phone").addEventListener("blur", validatePhone);
+
+document.getElementById("parent-phone").addEventListener("input", function(e) {
+    const countryData = iti ? iti.getSelectedCountryData() : null;
+    const isUS = countryData && countryData.iso2 === "us";
+    
+    if (isUS) {
+        let input = e.target.value.replace(/\D/g, "");
+        if (input.length > 10) input = input.substring(0, 10);
+        
+        let formatted = "";
+        if (input.length > 0) {
+            formatted += "(" + input.substring(0, 3);
+        }
+        if (input.length > 3) {
+            formatted += ") " + input.substring(3, 6);
+        }
+        if (input.length > 6) {
+            formatted += "-" + input.substring(6, 10);
+        }
+        e.target.value = formatted;
+    }
+    
+    // Clear validation error dynamically if it becomes valid
+    if (iti && iti.isValidNumber()) {
+        const parentGroup = this.closest(".form-group");
+        parentGroup.classList.remove("invalid");
+        document.getElementById("error-parent-phone").textContent = "";
+    }
 });
+
+document.getElementById("privacy-consent").addEventListener("change", validatePrivacyConsent);
 
 document.getElementById("child-name").addEventListener("blur", function() {
     validateInput(this, document.getElementById("error-child-name"), val => val.trim().length > 0, "err_child_name");
@@ -353,25 +436,6 @@ document.getElementById("child-age").addEventListener("blur", function() {
         const age = parseInt(val, 10);
         return !isNaN(age) && age >= 1 && age <= 18;
     }, "err_child_age");
-});
-
-// Format phone number dynamically as user types: (XXX) XXX-XXXX
-document.getElementById("parent-phone").addEventListener("input", function(e) {
-    let input = e.target.value.replace(/\D/g, "");
-    if (input.length > 10) input = input.substring(0, 10);
-    
-    let formatted = "";
-    if (input.length > 0) {
-        formatted += "(" + input.substring(0, 3);
-    }
-    if (input.length > 3) {
-        formatted += ") " + input.substring(3, 6);
-    }
-    if (input.length > 6) {
-        formatted += "-" + input.substring(6, 10);
-    }
-    
-    e.target.value = formatted;
 });
 
 // Handle Form Submit
@@ -387,15 +451,16 @@ form.addEventListener("submit", (e) => {
     const btnIcon = btnSubmit.querySelector("i");
     
     const isParentNameValid = validateInput(parentName, document.getElementById("error-parent-name"), val => val.trim().length > 0, "err_parent_name");
-    const isParentPhoneValid = validateInput(parentPhone, document.getElementById("error-parent-phone"), val => val.replace(/\D/g, "").length === 10, "err_parent_phone");
+    const isParentPhoneValid = validatePhone();
     const isChildNameValid = validateInput(childName, document.getElementById("error-child-name"), val => val.trim().length > 0, "err_child_name");
     const isChildAgeValid = validateInput(childAge, document.getElementById("error-child-age"), val => {
         const age = parseInt(val, 10);
         return !isNaN(age) && age >= 1 && age <= 18;
     }, "err_child_age");
     const isTherapiesValid = validateTherapies();
+    const isPrivacyConsentValid = validatePrivacyConsent();
     
-    if (isParentNameValid && isParentPhoneValid && isChildNameValid && isChildAgeValid && isTherapiesValid) {
+    if (isParentNameValid && isParentPhoneValid && isChildNameValid && isChildAgeValid && isTherapiesValid && isPrivacyConsentValid) {
         // Disable button and show loading state
         btnSubmit.disabled = true;
         const originalText = btnTextSpan.textContent;
@@ -407,7 +472,7 @@ form.addEventListener("submit", (e) => {
         // Collect form data
         const formData = {
             parentName: parentName.value,
-            parentPhone: parentPhone.value,
+            parentPhone: iti ? iti.getNumber() : parentPhone.value,
             childName: childName.value,
             childAge: childAge.value,
             therapies: Array.from(therapyChecks).filter(c => c.checked).map(c => c.value),
@@ -449,7 +514,11 @@ form.addEventListener("submit", (e) => {
             
             // Reset Form
             form.reset();
+            if (iti) {
+                iti.setCountry("us");
+            }
             document.querySelectorAll(".form-group").forEach(g => g.classList.remove("invalid"));
+            document.querySelectorAll(".error-message").forEach(el => el.textContent = "");
         });
     }
 });
@@ -471,3 +540,46 @@ successModal.addEventListener("click", (e) => {
         successModal.classList.remove("active");
     }
 });
+
+// ==========================================================================
+// PRIVACY POLICY MODAL INTERACTIVES
+// ==========================================================================
+
+// Event delegation to open the modal
+document.body.addEventListener("click", (e) => {
+    if (e.target && e.target.id === "open-privacy-btn") {
+        e.preventDefault();
+        const modal = document.getElementById("privacy-modal");
+        if (modal) {
+            modal.classList.add("open");
+            document.body.style.overflow = "hidden"; // Prevent background scroll
+        }
+    }
+});
+
+// Close modal helper
+const closePrivacyModal = () => {
+    const modal = document.getElementById("privacy-modal");
+    if (modal) {
+        modal.classList.remove("open");
+        document.body.style.overflow = "auto";
+    }
+};
+
+const closePrivacyBtn = document.getElementById("close-privacy-btn");
+const closePrivacyBottomBtn = document.getElementById("close-privacy-bottom-btn");
+const privacyModal = document.getElementById("privacy-modal");
+
+if (closePrivacyBtn) {
+    closePrivacyBtn.addEventListener("click", closePrivacyModal);
+}
+if (closePrivacyBottomBtn) {
+    closePrivacyBottomBtn.addEventListener("click", closePrivacyModal);
+}
+if (privacyModal) {
+    privacyModal.addEventListener("click", (e) => {
+        if (e.target === privacyModal) {
+            closePrivacyModal();
+        }
+    });
+}

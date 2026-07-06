@@ -16,6 +16,9 @@
     <!-- FontAwesome for Premium Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
+    <!-- intl-tel-input for international phone selection -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.19/css/intlTelInput.css">
+    
     <!-- Main Style Sheet -->
     <link rel="stylesheet" href="index.css">
 </head>
@@ -321,7 +324,18 @@
                                     <span class="radiomark"></span>
                                     <span data-i18n="radio_private">Pago Privado / Private Pay</span>
                                 </label>
-                            </div>
+                        </div>
+                        
+                        <!-- Privacy Policy Checkbox -->
+                        <div class="form-group privacy-checkbox-group">
+                            <label class="checkbox-container privacy-consent-label">
+                                <input type="checkbox" id="privacy-consent" name="privacyConsent" required>
+                                <span class="checkmark"></span>
+                                <span data-i18n="privacy_consent_text" class="consent-text-span">
+                                    Acepto la <button type="button" class="btn-link" id="open-privacy-btn">Política de Privacidad</button> y doy mi consentimiento para ser contactado en relación con la evaluación de mi hijo(a).
+                                </span>
+                            </label>
+                            <span class="error-message" id="error-privacy-consent"></span>
                         </div>
 
                         <!-- Submit Button -->
@@ -399,6 +413,39 @@
             </div>
         </div>
     </footer>
+
+    <!-- PRIVACY POLICY MODAL -->
+    <div class="modal-overlay" id="privacy-modal">
+        <div class="modal-content privacy-modal-content">
+            <button class="close-modal-x" id="close-privacy-btn" aria-label="Cerrar modal">&times;</button>
+            <div class="privacy-modal-body">
+                <h2 class="privacy-modal-title">Privacy Policy / Política de Privacidad</h2>
+                
+                <div class="privacy-section">
+                    <h3>1. Information We Collect / Información que recopilamos</h3>
+                    <p>We collect the following personal information provided voluntarily by you: Parent's full name, phone number, email address, minor's age, preliminary therapy needs, and insurance provider information.</p>
+                    <p class="privacy-highlight">(La información recopilada se utiliza estrictamente para la precalificación clínica interna y para contactarle sobre su solicitud de evaluación. No vendemos ni compartimos sus datos con terceros).</p>
+                </div>
+                
+                <div class="privacy-section">
+                    <h3>2. Data Protection Notice (HIPAA Disclaimer) / Aviso de protección de datos</h3>
+                    <p>Please be advised that the contact form on this website is an initial communication tool to request an appointment. It is NOT an Electronic Health Record (EHR) system. Detailed medical histories and sensitive health information should only be shared directly with our licensed therapists during the in-person evaluation or through our secured, fully HIPAA-compliant clinical channels.</p>
+                    <p class="privacy-highlight">(Este formulario web es una herramienta de comunicación inicial. Las historias clínicas detalladas deben compartirse únicamente de forma presencial o mediante nuestros canales clínicos protegidos por la ley HIPAA).</p>
+                </div>
+                
+                <div class="privacy-section">
+                    <h3>3. Data Security / Seguridad de los datos</h3>
+                    <p>We implement industry-standard security measures, including SSL encryption, to protect the transmission of your data.</p>
+                </div>
+            </div>
+            <div class="privacy-modal-footer">
+                <button type="button" class="btn-cta btn-blue" id="close-privacy-bottom-btn" data-i18n="modal_close">Entendido</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- intl-tel-input JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.19/js/intlTelInput.min.js"></script>
 
     <!-- Main JS logic -->
     <script src="index.js"></script>
